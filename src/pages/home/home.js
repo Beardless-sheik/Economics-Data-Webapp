@@ -3,6 +3,7 @@ import './home.css';
 import ModelCarDetails from '../../components/ModelCarDetails/modelCarDetails';
 
 const Home = () => {
+  let keyData = 1;
   const ModelArrayData = [{
     vehicleLogoSrc: 'https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg',
     carModelName: 'Alfa Romeo',
@@ -31,7 +32,17 @@ const Home = () => {
       <p className="subMainHeaderText">STATS By Models</p>
       <div className="mainEstimateGrid">
         {
-            ModelArrayData.map((element,index) => <ModelCarDetails {...element}/>)
+            ModelArrayData.map((element) => {
+              keyData += 1;
+              return (
+                <ModelCarDetails
+                  key={keyData}
+                  vehicleLogoSrc={element.vehicleLogoSrc}
+                  carModelName={element.carModelName}
+                  numberOfModelsAvailable={element.numberOfModelsAvailable}
+                />
+              );
+            })
         }
       </div>
     </>
