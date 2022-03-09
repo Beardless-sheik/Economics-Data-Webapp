@@ -16,7 +16,6 @@ export const fetchCarModels = createAsyncThunk(
     };
     const response = await fetch(retrieveCarModelsAPI, requestOptions);
     const data = await response.json();
-    console.log(data);
     return data;
   },
 );
