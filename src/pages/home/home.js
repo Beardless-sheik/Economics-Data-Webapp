@@ -1,8 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import './home.css';
+import { useDispatch } from 'react-redux';
 import ModelCarDetails from '../../components/ModelCarDetails/modelCarDetails';
+import { fetchCarModels } from '../../redux/reduxSlices/carModelSlice';
 
 const Home = () => {
+  // const carModels = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCarModels());
+  }, []);
+
   let keyData = 1;
   const ModelArrayData = [{
     vehicleLogoSrc: 'https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg',
