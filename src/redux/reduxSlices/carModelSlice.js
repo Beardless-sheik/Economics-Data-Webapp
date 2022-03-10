@@ -27,7 +27,13 @@ const initialState = {
 const carModelSlice = createSlice({
   name: 'carModels',
   initialState,
-  extraReducers: { [fetchCarModels.fulfilled]: (state, action) => [...action.payload] },
+  // extraReducers: { [fetchCarModels.fulfilled]: (state, action) => [...action.payload] }
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCarModels.fulfilled, (state, action) => (
+        { ...state, carModels: action.payload }));
+  },
 });
 
 export default carModelSlice.reducer;
