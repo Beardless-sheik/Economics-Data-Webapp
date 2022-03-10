@@ -1,11 +1,14 @@
 .estimateDiv {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 10px auto;
-  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: auto;
+  /* border: 1px solid black; */
   border-radius: 10px;
   padding: 25px 5px;
+}
+
+.differentColour {
+  background-color: rgb(57, 96, 168);
 }
 
 .imageLogoContainer {
@@ -16,7 +19,6 @@
 
 .logoImage {
   width: 100%;
-  height: 100%;
 }
 
 .carModelDescriptionContainer {
@@ -25,7 +27,7 @@
 
 .carModelDescriptionText {
   font-family: Montserrat, serif;
-  font-size: 30px;
+  font-size: 20px;
   margin: 10px;
   text-align: right;
 }
