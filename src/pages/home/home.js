@@ -38,7 +38,7 @@ const CarModelList = ({ carModelList }) => {
 };
 
 CarModelList.propTypes = {
-  carModelList: PropTypes.shape.isRequired,
+  carModelList: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 function PaginatedItems({ itemsPerPage }) {
@@ -90,7 +90,7 @@ function PaginatedItems({ itemsPerPage }) {
 }
 
 PaginatedItems.propTypes = {
-  itemsPerPage: PropTypes.shape.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
 };
 
 const Home = () => {
@@ -100,7 +100,6 @@ const Home = () => {
   }, []);
   return (
     <>
-      <h1 className="mainHeaderText"> VEHICLE CARBON ESTIMATE STATS PER 100KM</h1>
       <p className="subMainHeaderText">STATS By Models</p>
       <div className="mainEstimateGrid">
         <PaginatedItems itemsPerPage={10} />
