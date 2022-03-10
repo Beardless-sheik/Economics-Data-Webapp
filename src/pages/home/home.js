@@ -2,12 +2,12 @@ import { Fragment, useEffect, useState } from 'react';
 import './home.css';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
+import PropTypes from 'prop-types';
 import ModelCarDetails from '../../components/ModelCarDetails/modelCarDetails';
 import { fetchCarModels } from '../../redux/reduxSlices/carModelSlice';
 
 const CarModelList = ({ carModelList }) => {
   let keyData = 1;
-  console.log(carModelList);
   return (
     <>
       {carModelList
@@ -37,25 +37,22 @@ const CarModelList = ({ carModelList }) => {
   );
 };
 
+CarModelList.propTypes = {
+  carModelList: PropTypes.shape.isRequired,
+};
+
 function PaginatedItems({ itemsPerPage }) {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
   const carModels = useSelector((state) => state.carModels);
-  console.log(carModels);
 
   useEffect(() => {
-    console.log('pagnation useEffect');
-    // let {carModelsDestruct} = carModels.carModels;
-    console.log(carModels.carModels);
-    // Fetch items from another resources.
+    // Fetch items from other resources.
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     if (carModels.carModels.length !== 0) {
-      console.log(currentItems);
       setCurrentItems(carModels.carModels.slice(itemOffset, endOffset));
-      console.log(currentItems);
       setPageCount(Math.ceil(carModels.carModels.length / itemsPerPage));
     }
   }, [itemOffset, itemsPerPage, carModels]);
@@ -63,9 +60,6 @@ function PaginatedItems({ itemsPerPage }) {
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % carModels.carModels.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    );
     setItemOffset(newOffset);
   };
 
@@ -94,6 +88,10 @@ function PaginatedItems({ itemsPerPage }) {
     </>
   );
 }
+
+PaginatedItems.propTypes = {
+  itemsPerPage: PropTypes.shape.isRequired,
+};
 
 const Home = () => {
   const dispatch = useDispatch();
