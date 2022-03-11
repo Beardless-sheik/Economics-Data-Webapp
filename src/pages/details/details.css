@@ -22,24 +22,3 @@
   display: grid;
   grid-template-columns: 1fr;
 }
-
-.gridMakeCarDetailsContainer{
-  margin: 5px 15px;
-  font-size: 20px;
-  border: 1px solid rgb(24, 45, 65);
-  border-radius: 20px;
-  text-align: center;
-  font-family: Hubballi, serif;
-}
-
-.viewEstimateButton {
-  background: rgb(135, 135, 201);
-  border-radius: 5px;
-  color: rgb(228, 224, 224);
-  border: 2px solid rgb(56, 51, 51);
-  margin: 10px;
-  padding: 5px;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}

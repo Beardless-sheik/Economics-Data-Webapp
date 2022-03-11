@@ -1,37 +1,8 @@
 import './details.css';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { fetchCarModelsDetails } from '../../redux/reduxSlices/carModelSlice';
-
-const ModelandMakeCarDetails = (props) => {
-  const {
-    vehicleName, vehicleMake, vehicleYearManufacture, vehicleId,
-  } = props;
-  return (
-    <div className="gridMakeCarDetailsContainer">
-      <p>
-        {vehicleName}
-      </p>
-      <p>
-        {vehicleMake}
-      </p>
-      <p>
-        {vehicleYearManufacture}
-      </p>
-      <button type="button" className="viewEstimateButton" id={vehicleId}>
-        View Estimate
-      </button>
-    </div>
-  );
-};
-
-ModelandMakeCarDetails.prototypes = {
-  vehicleName: PropTypes.string.isRequired,
-  vehicleMake: PropTypes.string.isRequired,
-  vehicleYearManufacture: PropTypes.string.isRequired,
-  vehicleId: PropTypes.string.isRequired,
-};
+import ModelandMakeCarDetails from '../../components/ModelAndMakeCarDetails/modelAndMakeCarDetails';
 
 const DetailsPage = () => {
   const carModelData = useSelector((state) => state.carModels);
@@ -45,7 +16,6 @@ const DetailsPage = () => {
     dispatch(fetchCarModelsDetails(carModelData.carModelSelected));
   }, []);
   const { carModelSelectedDetails } = carModelData;
-  console.log(carModelSelectedDetails);
   return (
     <>
       <p className="subHeaderText">Estimate CARBON Data for Vehicles per 100KM</p>
