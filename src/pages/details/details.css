@@ -1,0 +1,24 @@
+.headerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: Hubballi, serif;
+  font-size: 30px;
+}
+
+.headerLogoImage {
+  margin: 10px;
+  width: 80%;
+  height: 80%;
+}
+
+.subHeaderText {
+  margin-left: 0;
+  padding: 15px;
+  color: #edebfa;
+  background-color: #4c3ee1;
+}
+
+.modelMakeDetailsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+}

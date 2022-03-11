@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Montserrat:wght@300&display=swap');
 
-.mainHeaderText {
-  font-family: Hubballi, serif;
-  margin: 20px auto;
-  width: 300px;
-  text-align: center;
-  font-size: 20px;
-  color: #edebfa;
-}
-
 .subMainHeaderText {
   margin-left: 0;
   padding: 15px;

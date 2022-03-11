@@ -4,6 +4,13 @@
   margin: auto;
   border-radius: 10px;
   padding: 25px 5px;
+  cursor: pointer;
+}
+
+.button-container {
+  background: none;
+  border: none;
+  border-style: none;
 }
 
 .differentColour {
