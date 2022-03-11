@@ -5,11 +5,12 @@ const retrieveCarModelsAPI = 'https://www.carboninterface.com/api/v1/vehicle_mak
 export const fetchCarModels = createAsyncThunk(
   'carModels/getCarModels',
   async () => {
+    console.log(process.env.REACT_APP_CARBON_API_KEY);
     const requestOptions = {
       method: 'GET',
       headers: {
         Accept: 'text/json',
-        Authorization: 'Bearer FSwkEcLz7o1r1KYMC9TEw',
+        Authorization: `Bearer ${process.env.REACT_APP_CARBON_API_KEY}`,
       },
       mode: 'cors',
       cache: 'default',
@@ -20,15 +21,35 @@ export const fetchCarModels = createAsyncThunk(
   },
 );
 
+// export const fetchCarModelsDetails = createAsyncThunk(
+//   'carModels/getCarModelDetails',
+//   async () => {
+//     const requestOptions = {
+//       method: 'GET',
+//       headers: {
+//         Accept: 'text/json',
+//         Authorization: 'Bearer FSwkEcLz7o1r1KYMC9TEw',
+//       },
+//       mode: 'cors',
+//       cache: 'default',
+//     };
+//     const response = await fetch(,requestOptions)
+//   },
+// );
+
 const initialState = {
   carModels: [],
   loading: false,
+  carModelSelected: '',
 };
 const carModelSlice = createSlice({
   name: 'carModels',
   initialState,
-  // extraReducers: { [fetchCarModels.fulfilled]: (state, action) => [...action.payload] }
-
+  reducers: {
+    addCarModelSelected(state, action) {
+      state.carModelSelected = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCarModels.fulfilled, (state, action) => (
@@ -36,4 +57,5 @@ const carModelSlice = createSlice({
   },
 });
 
+export const { addCarModelSelected } = carModelSlice.actions;
 export default carModelSlice.reducer;
