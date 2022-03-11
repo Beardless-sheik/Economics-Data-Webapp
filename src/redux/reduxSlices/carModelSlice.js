@@ -4,7 +4,6 @@ export const fetchCarModels = createAsyncThunk(
   'carModels/getCarModels',
   async () => {
     const retrieveCarModelsAPI = 'https://www.carboninterface.com/api/v1/vehicle_makes';
-    console.log(process.env.REACT_APP_CARBON_API_KEY);
     const requestOptions = {
       method: 'GET',
       headers: {
@@ -23,7 +22,6 @@ export const fetchCarModels = createAsyncThunk(
 export const fetchCarModelsDetails = createAsyncThunk(
   'carModels/getCarModelDetails',
   async (carModelSelectedId) => {
-    console.log(carModelSelectedId);
     const retrieveCarModelDetailsAPI = `https://www.carboninterface.com/api/v1/vehicle_makes/${carModelSelectedId}/vehicle_models`;
     const requestOptions = {
       method: 'GET',
@@ -51,7 +49,8 @@ const carModelSlice = createSlice({
   initialState,
   reducers: {
     addCarModelSelected(state, action) {
-      state.carModelSelected = action.payload;
+      const copyState = state;
+      copyState.carModelSelected = action.payload;
     },
   },
   extraReducers: {
