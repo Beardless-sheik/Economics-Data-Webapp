@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Carbon Estimate Stats
+This web app gives the user the chance to estimate the carbon emmsiions of vehicles that can be looked at given the cars available. 
+It's data is powered by the [Carbon Emissions API](https://docs.carboninterface.com/#/). A user is able to select a vehicle given and the stats will be pulled from the API and displayed per 100KM.
+
+## Built With
+
+- JavaScript
+- React
+- Redux
+
+## Deployed On
+
+It is deployed on [Heroku](https://sad-meitner-38a530.netlify.app/)
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- some knowledge on `npm` , webpack, JavaScript(ES6) and React
+- [Node.js](https://nodejs.org/en/)
+- Web browser
+- Code Editor
+
+### Setup
+
+- Clone repository using this command in terminal `git clone https://github.com/Beardless-sheik/Economics-Data-Webapp.git`
+- Change directory to the root folder
+- Install dependencies using `npm install`
+- run `npm run start`
+
 
 ## Available Scripts
 
@@ -17,8 +48,6 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -26,8 +55,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -39,32 +66,24 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Author
+👤 **Blessed Jason Mwanza**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [@Beardless-sheik](https://github.com/beardless-sheik/)
+- Twitter: [@beardless_sheik](https://twitter.com/Beardless_Sheik)
+- LinkedIn: [Alick Nyirenda ](https://www.linkedin.com/in/alick-nyirenda/)
+## 🤝 Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions, issues, and feature requests are welcome!
 
-### Code Splitting
+Feel free to check the [issues page](https://github.com/Beardless-sheik/Economics-Data-Webapp/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Show your support
 
-### Analyzing the Bundle Size
+Give a ⭐️ if you like this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📝 License
 
-### Making a Progressive Web App
+This project is [CREATIVE COMMONS CORPORATION](./LICENSE) licensed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> UI Inspired by [Nelson Sakwa on Behance](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
