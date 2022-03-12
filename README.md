@@ -4,6 +4,8 @@
 This web app gives the user the chance to estimate the carbon emmsiions of vehicles that can be looked at given the cars available. 
 It's data is powered by the [Carbon Emissions API](https://docs.carboninterface.com/#/). A user is able to select a vehicle given and the stats will be pulled from the API and displayed per 100KM.
 
+![screenshot](https://user-images.githubusercontent.com/44676055/158031769-b51d861e-02a1-4b61-a646-30b9dfa7e6c0.JPG)
+
 ## Built With
 
 - JavaScript
