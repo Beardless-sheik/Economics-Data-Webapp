@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.mainHeaderText {
+  font-family: Hubballi, serif;
+  margin: 20px auto;
+  width: 300px;
+  text-align: center;
+  font-size: 20px;
+  color: #edebfa;
+}

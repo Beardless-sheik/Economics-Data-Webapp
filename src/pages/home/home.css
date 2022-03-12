@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Montserrat:wght@300&display=swap');
+
+.subMainHeaderText {
+  margin-left: 0;
+  padding: 15px;
+  color: #edebfa;
+  background-color: #4c3ee1;
+}
+
+.mainEstimateGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pagination {
+  list-style: none;
+}
+
+.page-item {
+  text-align: center;
+  border: 1px solid black;
+  width: 80px;
+  background-color: rgb(202, 218, 231);
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(74, 74, 146);
+}
