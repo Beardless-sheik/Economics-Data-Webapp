@@ -12,7 +12,6 @@ const ModelandMakeCarDetails = (props) => {
   const dispatch = useDispatch();
 
   const moveUserToEstimatedetailsEventListener = (event) => {
-    console.log('event listener runs: vehicle ID:', event.target.id);
     dispatch(addModelSelectedForestimate(event.target.id));
     navigate('./estimate');
   };

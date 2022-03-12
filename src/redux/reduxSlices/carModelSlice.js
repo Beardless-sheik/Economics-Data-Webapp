@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { act } from 'react-dom/test-utils';
 
 export const fetchCarModels = createAsyncThunk(
   'carModels/getCarModels',
@@ -101,6 +100,6 @@ const carModelSlice = createSlice({
 });
 
 export const {
-  addCarModelSelected, addModelSelectedForestimate, addFiltereddata
+  addCarModelSelected, addModelSelectedForestimate, addFiltereddata,
 } = carModelSlice.actions;
 export default carModelSlice.reducer;

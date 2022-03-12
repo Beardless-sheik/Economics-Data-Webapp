@@ -13,26 +13,34 @@ const EstimateDetailsPage = () => {
   const index = carModelData.carModelSelectedDetails.findIndex(
     (element) => element.data.id === carModelData.carModelSelectedForEstimate,
   );
-  const { attributes, id } = carModelData.carModelSelectedDetails[index].data;
-  console.log(attributes, id);
+  const { id } = carModelData.carModelSelectedDetails[index].data;
 
   useEffect(() => {
     dispatch(fetchCarEstimateDetails(id));
   }, []);
-  
+
   const vehcileMake = carModelData.estimateDetails.vehicle_make;
   const vehicleModel = carModelData.estimateDetails.vehicle_model;
   const carbonKG = carModelData.estimateDetails.carbon_kg;
 
-    const goBackaPageEventListener = () => {
+  const goBackaPageEventListener = () => {
     navigate('/detail');
   };
+
+  const handleKeyDownEnter = (event) => {
+    if (event.code === 'enter') {
+      goBackaPageEventListener();
+    }
+  };
+
   return (
     <>
-      <p className="subHeaderText">
-        <img src={returnImage} alt="return logo to go back a page" className="returnImageLogo" onClick={goBackaPageEventListener}/>
-        Estimate CARBON Data for Vehicles per 100KM
-      </p>
+      <div className="subHeaderText">
+        <div tabIndex={0} role="button" onKeyDown={handleKeyDownEnter} onClick={goBackaPageEventListener}>
+          <img src={returnImage} alt="return logo to go back a page" className="returnImageLogo" />
+        </div>
+        <p> Estimate CARBON Data for Vehicles per 100KM </p>
+      </div>
       <p className="vehicleEstimateText">
         The estimate per 100KM of
         {' '}

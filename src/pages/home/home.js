@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import './home.css';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
-import PropTypes, { element } from 'prop-types';
+import PropTypes from 'prop-types';
 import ModelCarDetails from '../../components/ModelCarDetails/modelCarDetails';
 import { fetchCarModels, addFiltereddata } from '../../redux/reduxSlices/carModelSlice';
 
@@ -48,21 +48,30 @@ function PaginatedItems({ itemsPerPage }) {
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     setFilteredData(carModels.carModels);
-    console.log('use effect 1')
   });
 
   const onSearchFilterEventListener = (event) => {
-    const lowerCaseCarModelArray = carModels.carModels.map((element) => ({ ...element, data:{...element.data, attributes:{...element.data.attributes, name: element.data.attributes.name.toLowerCase()}} }));
-    const newFilterArray = lowerCaseCarModelArray.filter((element) => element.data.attributes.name.includes(event.target.value));
-    console.log(lowerCaseCarModelArray);
-    console.log('event listener running on change input:', event.target.value);
-    console.log(newFilterArray);
+    const lowerCaseCarModelArray = carModels.carModels.map(
+      (element) => (
+        {
+          ...element,
+          data: {
+            ...element.data,
+            attributes: {
+              ...element.data.attributes,
+              name: element.data.attributes.name.toLowerCase(),
+            },
+          },
+        }
+      ),
+    );
+    const newFilterArray = lowerCaseCarModelArray.filter(
+      (element) => element.data.attributes.name.includes(event.target.value),
+    );
     dispatch(addFiltereddata(newFilterArray));
   };
 
   useEffect(() => {
-    // Fetch items from other resources.
-    console.log('use effect 2')
     const endOffset = itemOffset + itemsPerPage;
     if (filteredData.length !== 0) {
       setCurrentItems(filteredData.slice(itemOffset, endOffset));
@@ -70,7 +79,6 @@ function PaginatedItems({ itemsPerPage }) {
     }
   }, [itemOffset, itemsPerPage, filteredData]);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % filteredData.length;
     setItemOffset(newOffset);

@@ -24,12 +24,20 @@ const DetailsPage = () => {
     navigate('/');
   };
 
+  const handleKeyDownEnter = (event) => {
+    if (event.code === 'enter') {
+      goBackaPageEventListener();
+    }
+  };
+
   return (
     <>
-      <p className="subHeaderText">
-        <img src={returnImage} alt="return logo to go back a page" className="returnImageLogo" onClick={goBackaPageEventListener}/>
-        Estimate CARBON Data for Vehicles per 100KM
-      </p>
+      <div className="subHeaderText">
+        <div tabIndex={0} role="button" onClick={goBackaPageEventListener} onKeyDown={handleKeyDownEnter}>
+          <img src={returnImage} alt="return logo to go back a page" className="returnImageLogo" />
+        </div>
+        <p> Estimate CARBON Data for Vehicles per 100KM </p>
+      </div>
       <div className="headerContainer">
         <img className="headerLogoImage" alt="logo of car model selected" src="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg" />
         <div className="hederTextContainer">
