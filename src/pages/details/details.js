@@ -1,12 +1,15 @@
 import './details.css';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchCarModelsDetails } from '../../redux/reduxSlices/carModelSlice';
+import returnImage from '../../images/return-icon.svg';
 import ModelandMakeCarDetails from '../../components/ModelAndMakeCarDetails/modelAndMakeCarDetails';
 
 const DetailsPage = () => {
   const carModelData = useSelector((state) => state.carModels);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const index = carModelData.carModels.findIndex(
     (element) => element.data.id === carModelData.carModelSelected,
   );
@@ -16,9 +19,17 @@ const DetailsPage = () => {
     dispatch(fetchCarModelsDetails(carModelData.carModelSelected));
   }, []);
   const { carModelSelectedDetails } = carModelData;
+
+  const goBackaPageEventListener = () => {
+    navigate('/');
+  };
+
   return (
     <>
-      <p className="subHeaderText">Estimate CARBON Data for Vehicles per 100KM</p>
+      <p className="subHeaderText">
+        <img src={returnImage} alt="return logo to go back a page" className="returnImageLogo" onClick={goBackaPageEventListener}/>
+        Estimate CARBON Data for Vehicles per 100KM
+      </p>
       <div className="headerContainer">
         <img className="headerLogoImage" alt="logo of car model selected" src="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg" />
         <div className="hederTextContainer">
