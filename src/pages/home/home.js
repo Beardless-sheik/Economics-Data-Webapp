@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 import ModelCarDetails from '../../components/ModelCarDetails/modelCarDetails';
-import { fetchCarModels, addFiltereddata } from '../../redux/reduxSlices/carModelSlice';
+import { fetchCarModels } from '../../redux/reduxSlices/carModelSlice';
 
 const CarModelList = ({ carModelList }) => (
   <>
@@ -42,7 +42,7 @@ function PaginatedItems({ itemsPerPage }) {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const dispatch = useDispatch();
+  const [carSearchModelData, setCarSearchModelData] = useState([]);
 
   const carModels = useSelector((state) => state.carModels);
   const [filteredData, setFilteredData] = useState([]);
@@ -68,16 +68,21 @@ function PaginatedItems({ itemsPerPage }) {
     const newFilterArray = lowerCaseCarModelArray.filter(
       (element) => element.data.attributes.name.includes(event.target.value),
     );
-    dispatch(addFiltereddata(newFilterArray));
+    setCarSearchModelData(newFilterArray);
   };
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     if (filteredData.length !== 0) {
-      setCurrentItems(filteredData.slice(itemOffset, endOffset));
-      setPageCount(Math.ceil(filteredData.length / itemsPerPage));
+      if (carSearchModelData.length !== 0) {
+        setCurrentItems(carSearchModelData.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(carSearchModelData.length / itemsPerPage));
+      } else {
+        setCurrentItems(filteredData.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(filteredData.length / itemsPerPage));
+      }
     }
-  }, [itemOffset, itemsPerPage, filteredData]);
+  }, [itemOffset, itemsPerPage, filteredData, carSearchModelData]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % filteredData.length;
@@ -86,7 +91,7 @@ function PaginatedItems({ itemsPerPage }) {
 
   return (
     <>
-      <p> Enter Car Model to Search </p>
+      <p className="car-model-search"> Enter Car Model to Search </p>
       <input onChange={onSearchFilterEventListener} />
       <CarModelList carModelList={currentItems} />
       <ReactPaginate
