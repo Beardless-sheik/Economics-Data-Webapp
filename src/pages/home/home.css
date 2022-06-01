@@ -3,13 +3,17 @@
 .subMainHeaderText {
   margin-left: 0;
   padding: 15px;
-  color: #edebfa;
-  background-color: #4c3ee1;
+  color: #5f54a8;
+  text-align: center;
 }
 
 .mainEstimateGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.car-model-search{
+  margin: 20px auto; 
 }
 
 .pagination {
