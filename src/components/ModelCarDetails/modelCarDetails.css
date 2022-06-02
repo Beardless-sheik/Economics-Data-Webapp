@@ -9,18 +9,19 @@
 
 .button-container {
   background: none;
-  border: none;
+  border-radius: 20px;
   border-style: none;
+  background-color: rgb(124, 158, 226);
 }
 
 .differentColour {
-  background-color: rgb(57, 96, 168);
+  background-color: rgb(115, 139, 185);
 }
 
 .imageLogoContainer {
   margin: 10px auto 20px;
-  height: 50%;
-  width: 40%;
+  height: 40%;
+  width: 30%;
 }
 
 .logoImage {

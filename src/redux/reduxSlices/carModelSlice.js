@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import carLogos from '../../components/constants/ImageConstants';
 
 export const fetchCarModels = createAsyncThunk(
   'carModels/getCarModels',
@@ -15,6 +16,14 @@ export const fetchCarModels = createAsyncThunk(
     };
     const response = await fetch(retrieveCarModelsAPI, requestOptions);
     const data = await response.json();
+    data.forEach((car) => {
+      carLogos.forEach((carLogo) => {
+        if (Object.prototype.hasOwnProperty.call(carLogo, car.data.attributes.name)) {
+          // eslint-disable-next-line no-param-reassign
+          car.data.attributes.sourceLogoUrl = carLogo[car.data.attributes.name];
+        }
+      });
+    });
     return data;
   },
 );
@@ -67,6 +76,7 @@ const initialState = {
   carModels: [],
   loading: false,
   carModelSelected: '',
+  carModelSelectedLogoImage: '',
   carModelSelectedDetails: [],
   carModelSelectedForEstimate: '',
   estimateDetails: '',
@@ -79,6 +89,10 @@ const carModelSlice = createSlice({
     addCarModelSelected(state, action) {
       const copyState = state;
       copyState.carModelSelected = action.payload;
+    },
+    addCarModelSelectedLogo(state, action) {
+      const copyState = state;
+      copyState.carModelSelectedLogoImage = action.payload;
     },
     addModelSelectedForestimate(state, action) {
       const copyState = state;
@@ -100,6 +114,6 @@ const carModelSlice = createSlice({
 });
 
 export const {
-  addCarModelSelected, addModelSelectedForestimate, addFiltereddata,
+  addCarModelSelected, addModelSelectedForestimate, addFiltereddata, addCarModelSelectedLogo,
 } = carModelSlice.actions;
 export default carModelSlice.reducer;

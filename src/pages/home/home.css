@@ -3,24 +3,34 @@
 .subMainHeaderText {
   margin-left: 0;
   padding: 15px;
-  color: #edebfa;
-  background-color: #4c3ee1;
+  color: #5f54a8;
+  text-align: center;
 }
 
 .mainEstimateGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 30px;
+}
+
+.car-model-search {
+  margin: 20px auto;
 }
 
 .pagination {
   list-style: none;
+  display: flex;
+  grid-column-end: span 2;
+  height: 30px;
 }
 
 .page-item {
+  padding-top: 3px;
   text-align: center;
   border: 1px solid black;
   width: 80px;
-  background-color: rgb(202, 218, 231);
+  background-color: rgb(124, 158, 226);
   cursor: pointer;
 }
 

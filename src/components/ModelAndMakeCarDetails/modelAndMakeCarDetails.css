@@ -1,10 +1,12 @@
 .gridMakeCarDetailsContainer {
-  margin: 5px 15px;
+  margin: 5px auto 30px;
   font-size: 20px;
   border: 1px solid rgb(24, 45, 65);
   border-radius: 20px;
   text-align: center;
   font-family: Hubballi, serif;
+  width: 60%;
+  padding: 20px;
 }
 
 .viewEstimateButton {

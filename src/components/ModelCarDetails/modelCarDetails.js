@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addCarModelSelected } from '../../redux/reduxSlices/carModelSlice';
+import { addCarModelSelected, addCarModelSelectedLogo } from '../../redux/reduxSlices/carModelSlice';
 
 const ModelCarDetails = (props) => {
   const {
@@ -14,6 +14,7 @@ const ModelCarDetails = (props) => {
 
   const toDetailLinkPageEventlistener = () => {
     dispatch(addCarModelSelected(modelId));
+    dispatch(addCarModelSelectedLogo(vehicleLogoSrc));
     navigate('./detail');
   };
 
@@ -43,7 +44,7 @@ const ModelCarDetails = (props) => {
 };
 
 ModelCarDetails.propTypes = {
-  vehicleLogoSrc: PropTypes.string.isRequired,
+  vehicleLogoSrc: PropTypes.string,
   carModelName: PropTypes.string.isRequired,
   numberOfModelsAvailable: PropTypes.number.isRequired,
   colour: PropTypes.string,
@@ -52,6 +53,7 @@ ModelCarDetails.propTypes = {
 
 ModelCarDetails.defaultProps = {
   colour: '',
+  vehicleLogoSrc: 'http://placehold.jp/3d4070/dfd8d8/250x250.png?text=No%20Logo%20Available',
 };
 
 export default ModelCarDetails;
