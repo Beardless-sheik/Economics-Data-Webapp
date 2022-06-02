@@ -9,10 +9,9 @@ import { fetchCarModels } from '../../redux/reduxSlices/carModelSlice';
 const CarModelList = ({ carModelList }) => (
   <>
     {carModelList.map((item, index) => {
-      if (index % 1.5 === 0) {
+      if (index % 2 === 0) {
         return (
           <ModelCarDetails
-            colour="different"
             key={item.data.id}
             modelId={item.data.id}
             vehicleLogoSrc="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg"
