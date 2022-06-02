@@ -10,6 +10,7 @@ const DetailsPage = () => {
   const carModelData = useSelector((state) => state.carModels);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const vehcileSelectedLogo = carModelData.carModelSelectedLogoImage;
   const index = carModelData.carModels.findIndex(
     (element) => element.data.id === carModelData.carModelSelected,
   );
@@ -39,7 +40,7 @@ const DetailsPage = () => {
         <p> Estimate CARBON Data for Vehicles per 100KM </p>
       </div>
       <div className="headerContainer">
-        <img className="headerLogoImage" alt="logo of car model selected" src="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg" />
+        <img className="headerLogoImage" alt="logo of car model selected" src={vehcileSelectedLogo} />
         <div className="hederTextContainer">
           <p>
             {carName}

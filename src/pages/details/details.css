@@ -5,14 +5,19 @@
   font-size: 30px;
 }
 
+.hederTextContainer {
+  width: 70%;
+  margin: 50px 10px 30px;
+}
+
 .returnImageLogo {
   width: 35px;
   height: 80%;
 }
 
 .headerLogoImage {
-  margin: 10px;
-  width: 80%;
+  margin: auto;
+  width: 60%;
   height: 80%;
 }
 
@@ -23,7 +28,7 @@
   margin-left: 0;
   padding: 15px;
   color: #edebfa;
-  background-color: #4c3ee1;
+  background-color: rgb(124, 158, 226);
 }
 
 .modelMakeDetailsContainer {

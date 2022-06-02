@@ -76,6 +76,7 @@ const initialState = {
   carModels: [],
   loading: false,
   carModelSelected: '',
+  carModelSelectedLogoImage: '',
   carModelSelectedDetails: [],
   carModelSelectedForEstimate: '',
   estimateDetails: '',
@@ -88,6 +89,10 @@ const carModelSlice = createSlice({
     addCarModelSelected(state, action) {
       const copyState = state;
       copyState.carModelSelected = action.payload;
+    },
+    addCarModelSelectedLogo(state, action) {
+      const copyState = state;
+      copyState.carModelSelectedLogoImage = action.payload;
     },
     addModelSelectedForestimate(state, action) {
       const copyState = state;
@@ -109,6 +114,6 @@ const carModelSlice = createSlice({
 });
 
 export const {
-  addCarModelSelected, addModelSelectedForestimate, addFiltereddata,
+  addCarModelSelected, addModelSelectedForestimate, addFiltereddata, addCarModelSelectedLogo,
 } = carModelSlice.actions;
 export default carModelSlice.reducer;

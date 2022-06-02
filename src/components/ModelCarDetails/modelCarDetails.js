@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addCarModelSelected } from '../../redux/reduxSlices/carModelSlice';
+import { addCarModelSelected, addCarModelSelectedLogo } from '../../redux/reduxSlices/carModelSlice';
 
 const ModelCarDetails = (props) => {
   const {
@@ -14,6 +14,7 @@ const ModelCarDetails = (props) => {
 
   const toDetailLinkPageEventlistener = () => {
     dispatch(addCarModelSelected(modelId));
+    dispatch(addCarModelSelectedLogo(vehicleLogoSrc));
     navigate('./detail');
   };
 
