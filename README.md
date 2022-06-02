@@ -37,6 +37,13 @@ To get a local copy up and running follow these simple example steps.
 
 ## Available Scripts
 
+To test the Code style of the app: Two linters are available: 
+- For the Javascript code: run
+  > npx eslint . 
+
+- For the CSS code: run 
+  > npx stylelint "**/*.css"
+
 In the project directory, you can run:
 
 ### `npm start`
@@ -47,9 +54,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
