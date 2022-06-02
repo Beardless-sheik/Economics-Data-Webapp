@@ -43,7 +43,7 @@ const ModelCarDetails = (props) => {
 };
 
 ModelCarDetails.propTypes = {
-  vehicleLogoSrc: PropTypes.string.isRequired,
+  vehicleLogoSrc: PropTypes.string,
   carModelName: PropTypes.string.isRequired,
   numberOfModelsAvailable: PropTypes.number.isRequired,
   colour: PropTypes.string,
@@ -52,6 +52,7 @@ ModelCarDetails.propTypes = {
 
 ModelCarDetails.defaultProps = {
   colour: '',
+  vehicleLogoSrc: 'http://placehold.jp/3d4070/dfd8d8/250x250.png?text=No%20Logo%20Available',
 };
 
 export default ModelCarDetails;

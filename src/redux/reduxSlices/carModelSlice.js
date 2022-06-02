@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import carLogos from '../../components/constants/ImageConstants';
 
 export const fetchCarModels = createAsyncThunk(
   'carModels/getCarModels',
@@ -15,6 +16,14 @@ export const fetchCarModels = createAsyncThunk(
     };
     const response = await fetch(retrieveCarModelsAPI, requestOptions);
     const data = await response.json();
+    data.forEach((car) => {
+      carLogos.forEach((carLogo) => {
+        if (Object.prototype.hasOwnProperty.call(carLogo, car.data.attributes.name)) {
+          // eslint-disable-next-line no-param-reassign
+          car.data.attributes.sourceLogoUrl = carLogo[car.data.attributes.name];
+        }
+      });
+    });
     return data;
   },
 );

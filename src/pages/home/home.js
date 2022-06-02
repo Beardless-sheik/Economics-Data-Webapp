@@ -14,7 +14,7 @@ const CarModelList = ({ carModelList }) => (
           <ModelCarDetails
             key={item.data.id}
             modelId={item.data.id}
-            vehicleLogoSrc="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg"
+            vehicleLogoSrc={item.data.attributes.sourceLogoUrl} // "https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg"
             carModelName={item.data.attributes.name}
             numberOfModelsAvailable={item.data.attributes.number_of_models}
           />
@@ -24,7 +24,7 @@ const CarModelList = ({ carModelList }) => (
         <ModelCarDetails
           key={item.data.id}
           modelId={item.data.id}
-          vehicleLogoSrc="https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg"
+          vehicleLogoSrc={item.data.attributes.sourceLogoUrl} // "https://c8.alamy.com/comp/D12RG7/logo-of-the-make-alfa-romeo-of-the-italian-car-manufacturer-fiat-group-D12RG7.jpg"
           carModelName={item.data.attributes.name}
           numberOfModelsAvailable={item.data.attributes.number_of_models}
         />
